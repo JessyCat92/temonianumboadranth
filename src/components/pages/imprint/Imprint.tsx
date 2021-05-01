@@ -18,6 +18,15 @@ function Imprint(props: RouteComponentProps) {
                     <dt>E-Mail-Adresse</dt>
                     <dd><a href="mailto:jcj.weber.92+coding%40gmail.com">jcj.weber.92+coding@gmail.com</a></dd>
 
+                    <dt>Github</dt>
+                    <dd><a href="https://github.com/MrsJessica92/temonianumboadranth">https://github.com/MrsJessica92/temonianumboadranth</a></dd>
+
+                    <dt>My Github</dt>
+                    <dd><a href="https://github.com/MrsJessica92">https://github.com/MrsJessica92</a></dd>
+
+                    <dt>My Community Github</dt>
+                    <dd><a href="https://github.com/TerraTex-Community">https://github.com/TerraTex-Community</a></dd>
+
                 </dl>
             </div>
         </div>

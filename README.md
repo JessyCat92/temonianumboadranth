@@ -27,4 +27,6 @@ I added here the 3 pages and added the Menu at the top as only 3 navigation poin
 As I was not sure about "Implement multiple designs" - I left this out for now. To implement here multiple 
 designs at least for coloring classes can be changed as bootstrap delivers that. To move the Nav to the side 
 (which doesn't make sense with only three pages in my mind) - we could do this by simply overwriting bootstrap
-classes with other flex values.
+classes with other flex values. 
+
+I added also a basic Imprint - as here was nothing in the tasks I added an imprint about myself.
