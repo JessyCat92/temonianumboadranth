@@ -18,6 +18,12 @@
       "id": 321,
       "name": "321 is myy happy star",
       "universeId": 333
+    },
+    {
+      "color": "YELLOW",
+      "id": 1,
+      "name": "1 is myy happy star",
+      "universeId": 222
     }
   ],
   "universes": [
@@ -25,6 +31,11 @@
       "id": 333,
       "maxSize": 3,
       "name": "Big universe"
+    },
+    {
+      "id": 222,
+      "maxSize": 1,
+      "name": "Small universe"
     }
   ]
 }

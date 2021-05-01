@@ -2,8 +2,8 @@ import React from 'react';
 import './App.scss';
 import Menu from "./components/menu/Menu";
 import { Router } from "@reach/router"
-import Universes from "./components/pages/universes/Universes";
-import Stars from "./components/pages/stars/Stars";
+import UniversesPage from "./components/pages/universes/Universes";
+import StarsPage from "./components/pages/stars/Stars";
 import Imprint from "./components/pages/imprint/Imprint";
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
         <Menu />
         <div className="content container">
             <Router>
-                <Universes path="/"/>
-                <Stars path="/stars"/>
+                <UniversesPage path="/"/>
+                <StarsPage path="/stars"/>
                 <Imprint path="/imprint"/>
             </Router>
         </div>
