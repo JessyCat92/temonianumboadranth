@@ -18,7 +18,7 @@ As I was allowed to take my favorite frameworks, I decided to go with react, typ
 
 To start the project as fast as possible, I started with create-react-app and template typescript.
 
-As the task is to show a index.html with a js and an css - I was not sure if this approach could be a bit 
+As the task is to show a index.html with a js and a css file - I was not sure if this approach could be a bit 
 misleading - but at least after running react is already doing this. At this step the Stars only shows an 
 Headline (h1) with Hello World as required.
 
@@ -30,3 +30,7 @@ designs at least for coloring classes can be changed as bootstrap delivers that.
 classes with other flex values. 
 
 I added also a basic Imprint - as here was nothing in the tasks I added an imprint about myself.
+I added here also my Github Account and also my Community Github Organisation - Most of the stuff there
+is created by myself - be aware most of that is already old or was atg times I started different new frameworks
+and had also not too much time - but maybe if you are interested it will give you some more coding impressions 
+about me.
