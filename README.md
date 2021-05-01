@@ -36,3 +36,12 @@ and had also not too much time - but maybe if you are interested it will give yo
 about me.
 
 ### Task 3
+
+### Task 4
+- _Use a CSS-Preprocessor to generate your CSS:_ As I decided already from earlier state to use SCSS/SASS 
+  I have this already in place. This is already supported by react-scripts - so it is not necessary to do 
+  changes here. 
+- _Minify your CSS and JS and use the minified version in your application:_ react-scripts already minifies 
+  css and js during build via `npm build` - which should be the version that is used in productive environments
+- _Use a build tool or task runner to automate the build of your application:_ this is also already part of 
+  react-scripts. React-scripts uses webpack for this.
