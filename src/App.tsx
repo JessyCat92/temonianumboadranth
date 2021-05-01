@@ -1,10 +1,22 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import Menu from "./components/menu/Menu";
+import { Router } from "@reach/router"
+import Universes from "./components/pages/universes/Universes";
+import Stars from "./components/pages/stars/Stars";
+import Imprint from "./components/pages/imprint/Imprint";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+        <Menu />
+        <div className="content container">
+            <Router>
+                <Universes path="/"/>
+                <Stars path="/stars"/>
+                <Imprint path="/imprint"/>
+            </Router>
+        </div>
     </div>
   );
 }

@@ -19,5 +19,12 @@ As I was allowed to take my favorite frameworks, I decided to go with react, typ
 To start the project as fast as possible, I started with create-react-app and template typescript.
 
 As the task is to show a index.html with a js and an css - I was not sure if this approach could be a bit 
-misleading - but at least after running react is already doing this. At this step the App only shows an 
+misleading - but at least after running react is already doing this. At this step the Stars only shows an 
 Headline (h1) with Hello World as required.
+
+### Task 2
+I added here the 3 pages and added the Menu at the top as only 3 navigation points can be fulfilled there.
+As I was not sure about "Implement multiple designs" - I left this out for now. To implement here multiple 
+designs at least for coloring classes can be changed as bootstrap delivers that. To move the Nav to the side 
+(which doesn't make sense with only three pages in my mind) - we could do this by simply overwriting bootstrap
+classes with other flex values.
