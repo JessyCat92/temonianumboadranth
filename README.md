@@ -48,3 +48,7 @@ about me.
   
 ### Task 5
 I added Tests for the Stars Service (see services/Stars).
+
+### Task 6 
+As json-server generates the id via automatic incrementation ID of Star and Universe is in my case always 
+unique. So I did not add an additional check on this.

@@ -24,18 +24,76 @@
       "id": 1,
       "name": "1 is myy happy star",
       "universeId": 222
+    },
+    {
+      "name": "wqewqeqweq",
+      "color": "GREEN",
+      "universeId": 333,
+      "id": 323
+    },
+    {
+      "name": "wqewqeqweq",
+      "color": "GREEN",
+      "universeId": 333,
+      "id": 324
+    },
+    {
+      "name": "asdasasdasd",
+      "color": "BLACK",
+      "universeId": 333,
+      "id": 325
+    },
+    {
+      "name": "saddas",
+      "color": "BLUE",
+      "universeId": 333,
+      "id": 326
+    },
+    {
+      "name": "saddas",
+      "color": "BLUE",
+      "universeId": 333,
+      "id": 327
+    },
+    {
+      "name": "asddsasadsda",
+      "color": "GREEN",
+      "universeId": 333,
+      "id": 328
+    },
+    {
+      "name": "qwewqeewq",
+      "color": "BLUE",
+      "universeId": 333,
+      "id": 329
+    },
+    {
+      "name": "sadsad",
+      "color": "BLACK",
+      "universeId": 335,
+      "id": 330
     }
   ],
   "universes": [
     {
       "id": 333,
-      "maxSize": 3,
+      "maxSize": 10,
       "name": "Big universe"
     },
     {
       "id": 222,
       "maxSize": 1,
       "name": "Small universe"
+    },
+    {
+      "name": "New Universe",
+      "maxSize": "3",
+      "id": 334
+    },
+    {
+      "name": "123",
+      "maxSize": "3",
+      "id": 335
     }
   ]
 }

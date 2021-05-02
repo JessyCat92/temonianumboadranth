@@ -1,3 +1,4 @@
+import { Link } from '@reach/router';
 import React from 'react';
 import './Menu.scss';
 import NavLink from "./NavLink";
@@ -7,14 +8,14 @@ function Menu() {
         <div className="Menu">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <a className="navbar-brand" href="#">
+                    <Link className="navbar-brand" to="/">
                         <img className="navbar-brand logo" alt ="logo" src="/img/logo_randlos.png"/>
                         Coding
-                    </a>
+                    </Link>
                     <div className="navbar" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <NavLink to="/">Universes</NavLink>
+                                <NavLink to="/universes">Universes</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink to="stars">Stars</NavLink>

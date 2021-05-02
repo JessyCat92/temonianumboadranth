@@ -5,9 +5,9 @@ import React from "react";
 function NavLink(props: any) {
     return (<Link
         {...props}
-        getProps={({ isCurrent }) => {
+        getProps={({ isCurrent, isPartiallyCurrent }) => {
             return {
-                className: isCurrent ? "nav-link active" : "nav-link"
+                className: isCurrent || isPartiallyCurrent ? "nav-link active" : "nav-link"
             };
         }}
     />);
