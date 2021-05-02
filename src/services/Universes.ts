@@ -8,7 +8,7 @@ export async function getUniverses(loadStars = true): Promise<Universe[]> {
     if (loadStars) {
         for(const universe of data.data as Universe[]) {
             // get stars of universe
-            universe.stars = await getStars(universe.id);
+            universe.stars = (await getStars(universe.id)).data;
         }
     }
 

@@ -54,7 +54,7 @@ describe("services/stars", () => {
     });
 
     it("get all stars", async () => {
-        const stars = await getStars();
+        const stars = (await getStars()).data;
 
         expect(stars).toMatchObject( [
                 {
@@ -76,7 +76,7 @@ describe("services/stars", () => {
     });
 
     it("get stars from second universe only", async () => {
-        const stars = await getStars(2);
+        const stars = (await getStars(2)).data;
 
         expect(stars).toMatchObject( [
                 {

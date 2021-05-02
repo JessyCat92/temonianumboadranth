@@ -1,10 +1,20 @@
 import API from "./API";
 import Star from "../models/Star";
 import {getUniverse, getUniversesSorted} from "./Universes";
+import {AxiosResponse} from "axios";
 
-export async function getStars(universeId : number|null = null): Promise<Star[]> {
+export async function getStars(universeId : number|null = null, page: number|null = null): Promise<AxiosResponse> {
+    const params: any = {};
+
+    if (universeId) {
+        params.universeId = universeId
+    }
+    if (page) {
+        params._page = page
+    }
+
     const data = await API.get("stars", {
-        params: universeId !== null ? {universeId} : {}
+        params
     });
 
     if (universeId === null) {
@@ -16,7 +26,7 @@ export async function getStars(universeId : number|null = null): Promise<Star[]>
         }
     }
 
-    return data.data;
+    return data;
 }
 
 export async function deleteStar(starId: number) {
@@ -26,7 +36,7 @@ export async function deleteStar(starId: number) {
 export async function createStar(name: string, color:string, universeId: number): Promise<Star> {
     // we should check if the universe has already max size reached
     const universe = await getUniverse(universeId);
-    universe.stars = await getStars(universe.id);
+    universe.stars = (await getStars(universe.id)).data as Star[];
 
     if (universe.maxSize > universe.stars.length) {
         const data = await API.post("stars", {

@@ -5,6 +5,7 @@ import Star from "../../../models/Star";
 import {deleteStar, getStars} from "../../../services/Stars";
 import {getUniverse} from "../../../services/Universes";
 import Universe from "../../../models/Universe";
+import Pagination from "../../util/Pageination";
 
 export interface UniverseProps extends RouteComponentProps<{
     universeId?: number
@@ -14,7 +15,9 @@ class StarsPage extends React.Component<UniverseProps> {
     state = {
         stars: [] as Star[],
         universe: null as Universe|null,
-        newStar: null as Star|null
+        newStar: null as Star|null,
+        page: 1,
+        maxPages: 1
     }
 
     componentDidMount() {
@@ -28,16 +31,11 @@ class StarsPage extends React.Component<UniverseProps> {
                 this.setState({universe: universe});
             }
 
-            const stars = await getStars(
-                this.props.universeId || null
-            );
-            this.setState({stars});
+            await this.loadStars();
 
-            if ((this.props.location?.state as any).newStar) {
+            if (this.props.location?.state && (this.props.location.state as any).newStar) {
                 this.setState({
-                    newStar: stars.find(
-                        (star) => star.id === (this.props.location?.state as any).newStar
-                    )
+                    newStar: (this.props.location?.state as any).newStar
                 });
             }
 
@@ -46,10 +44,25 @@ class StarsPage extends React.Component<UniverseProps> {
         }
     }
 
+    async loadStars() {
+        const stars = (await getStars(
+            this.props.universeId || null,
+            this.state.page
+        ));
+
+        this.setState({
+            stars: stars.data as Star[],
+            maxPages: Math.floor(stars.headers["x-total-count"] / 10) + 1
+        });
+    }
+
+    changePage(page:number) {
+        this.setState({page}, this.loadStars);
+    }
+
     async deleteStar(id: number) {
         try {
             await deleteStar(id);
-
             // let's refresh the data afterwards
             this.loadData();
         } catch (e) {
@@ -63,15 +76,15 @@ class StarsPage extends React.Component<UniverseProps> {
                 <h2>
                     {
                         this.props.universeId ?
-                            `Stars of Universe ${this.state.universe?.name}`:
+                            `Stars of Universe ${this.state.universe?.name}` :
                             "Stars"
                     }
                 </h2>
 
-                { this.state.newStar &&
-                    <div className="alert alert-success" role="alert">
-                        Star {this.state.newStar.name} (ID: {this.state.newStar.id}) was created successfully.
-                    </div>
+                {this.state.newStar &&
+                <div className="alert alert-success" role="alert">
+                    Star {this.state.newStar.name} (ID: {this.state.newStar.id}) was created successfully.
+                </div>
                 }
 
                 {
@@ -88,34 +101,37 @@ class StarsPage extends React.Component<UniverseProps> {
                         <th scope="col">Universe</th>
 
                         {
-                            this.props.universeId ?
-                                <th scope="col"> </th> :
-                                ""
+                            this.props.universeId &&
+                            <th scope="col"></th>
                         }
                     </tr>
                     </thead>
                     <tbody>
-                        {this.state.stars.map((star: Star) =>
-                            <tr key={star.id} className={`starColor_${star.color}`}>
-                                <td>{star.id}</td>
-                                <td>{star.name}</td>
-                                <td>{star.universe?.name || this.state.universe?.name}</td>
-                                {
-                                    this.props.universeId ?
-                                        <td>
-                                            <button
-                                                className="btn btn-danger btn-outline-light float-right"
-                                                onClick={this.deleteStar.bind(this, star.id)}
-                                            >
-                                                Delete
-                                            </button>
-                                        </td>
-                                        : ""
-                                }
-                            </tr>
-                        )}
+                    {this.state.stars.map((star: Star) =>
+                        <tr key={star.id} className={`starColor_${star.color}`}>
+                            <td>{star.id}</td>
+                            <td>{star.name}</td>
+                            <td>{star.universe?.name || this.state.universe?.name}</td>
+                            {
+                                this.props.universeId &&
+                                <td>
+                                    <button
+                                        className="btn btn-danger btn-outline-light float-right"
+                                        onClick={this.deleteStar.bind(this, star.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            }
+                        </tr>
+                    )}
                     </tbody>
                 </table>
+
+                {this.state.stars && this.state.maxPages > 1 &&
+                    <Pagination currentPage={this.state.page} maxPages={this.state.maxPages} callback={this.changePage.bind(this)}/>
+                }
+
             </div>
         );
     }

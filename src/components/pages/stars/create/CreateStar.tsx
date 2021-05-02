@@ -45,7 +45,7 @@ class StarsPage extends React.Component<UniverseProps> {
             try {
                 const data = await createStar(this.state.name, this.state.color, this.state.universe.id);
                 await navigate(`/universes/${this.state.universe.id}`, {
-                    state: {newStar: data.id}
+                    state: {newStar: data}
                 });
             } catch (e) {
                 this.setState({error: e.message})
