@@ -45,3 +45,6 @@ about me.
   css and js during build via `npm build` - which should be the version that is used in productive environments
 - _Use a build tool or task runner to automate the build of your application:_ this is also already part of 
   react-scripts. React-scripts uses webpack for this.
+  
+### Task 5
+I added Tests for the Stars Service (see services/Stars).
